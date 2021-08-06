@@ -15,6 +15,8 @@ import { OfertaModel } from './../shared/oferta.model';
 })
 export class RestaurantesComponent implements OnInit {
 
+  public ofertas!: OfertaModel[];
+
   constructor(
     private ofertasService: OfertasService
   ) { }
@@ -22,7 +24,7 @@ export class RestaurantesComponent implements OnInit {
   ngOnInit(): void {
     this.ofertasService.getOfertasPorCategoria('restaurante')
       .then((ofertas: OfertaModel[]) => {
-        console.log(ofertas);
+        this.ofertas = ofertas;
       });
   }
 
