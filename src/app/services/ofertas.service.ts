@@ -15,4 +15,10 @@ export class OfertasService {
             .toPromise()
             .then((resposta: any) => resposta);
     }
+
+    public getOfertasPorCategoria(categoria: string): Promise<OfertaModel[]> {
+        return this.http.get<OfertaModel[]>(`http://localhost:3000/ofertas?categoria=${categoria}`)
+            .toPromise()
+            .then((resposta) => resposta);
+    }
 }
