@@ -14,13 +14,13 @@ import { OfertasService } from './../services/ofertas.service';
 export class OfertaComponent implements OnInit {
 
   public oferta!: OfertaModel
-  
 
   constructor(
     private route: ActivatedRoute,
     private ofertasService: OfertasService,
-    
+
   ) { }
+
 
   ngOnInit(): void {
 
