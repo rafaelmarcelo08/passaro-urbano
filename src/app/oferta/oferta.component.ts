@@ -13,19 +13,21 @@ import { OfertasService } from './../services/ofertas.service';
 })
 export class OfertaComponent implements OnInit {
 
-  public oferta!: OfertaModel;
+  public oferta!: OfertaModel
+  
 
   constructor(
     private route: ActivatedRoute,
-    private ofertasService: OfertasService
+    private ofertasService: OfertasService,
+    
   ) { }
 
   ngOnInit(): void {
 
     this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
-      .then((ofertas: OfertaModel[]) => {
-        let oferta: any = ofertas.shift();
+      .then((oferta: OfertaModel) => {
         this.oferta = oferta;
+        console.log(this.oferta);
       });
   }
 }
