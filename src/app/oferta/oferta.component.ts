@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OfertaModel } from '../shared/oferta.model';
 
+import { OfertaModel } from '../shared/oferta.model';
 import { OfertasService } from './../services/ofertas.service';
+
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
@@ -27,7 +28,6 @@ export class OfertaComponent implements OnInit {
     this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
       .then((oferta: OfertaModel) => {
         this.oferta = oferta;
-        console.log(this.oferta);
       });
   }
 }

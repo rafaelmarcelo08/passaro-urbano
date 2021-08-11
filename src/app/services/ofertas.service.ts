@@ -25,6 +25,8 @@ export class OfertasService {
     public getOfertaPorId(id: Number): Promise<OfertaModel> {
          return this.http.get<OfertaModel>(`http://localhost:3000/ofertas?id=${id}`)
             .toPromise()
-            .then((resposta: any) => resposta.shift());
+            .then((resposta: any) =>  {
+                return resposta.shift()
+            });
     }
 }
