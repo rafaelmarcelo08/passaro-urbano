@@ -29,10 +29,6 @@ export const ROUTES: Routes = [
         component: OfertaComponent,
         children: [
             {
-                path: '',
-                component: ComoUsarComponent
-            },
-            {
                 path: 'como-usar',
                 component: ComoUsarComponent
             },
