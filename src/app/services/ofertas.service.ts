@@ -24,18 +24,26 @@ export class OfertasService {
     }
 
     public getOfertaPorId(id: Number): Promise<OfertaModel> {
-         return this.http.get<OfertaModel>(`${URL_API}/ofertas?id=${id}`)
+        return this.http.get<OfertaModel>(`${URL_API}/ofertas?id=${id}`)
             .toPromise()
-            .then((resposta: any) =>  {
+            .then((resposta: any) => {
                 return resposta.shift()
             });
     }
 
     public getComoUsarPorId(id: Number): Promise<String> {
         return this.http.get(`${URL_API}/como-usar?id=${id}`)
-        .toPromise()
-        .then((resposta: any) => {
-            return resposta[0].descricao;
-        });
+            .toPromise()
+            .then((resposta: any) => {
+                return resposta[0].descricao;
+            });
+    }
+
+    public getOndeFicaPorId(id: Number): Promise<String> {
+        return this.http.get(`${URL_API}/onde-fica?id=${id}`)
+            .toPromise()
+            .then((resposta: any) => {
+                return resposta[0].descricao;
+            });
     }
 }

@@ -13,13 +13,18 @@ import { OfertasService } from './../../services/ofertas.service';
 })
 export class OndeFicaComponent implements OnInit {
 
+  public ondeFica!: String;
+
   constructor(
     private route: ActivatedRoute,
     private ofertasService: OfertasService
   ) { }
 
   ngOnInit(): void {
-
+    this.ofertasService.getOndeFicaPorId(this.route.snapshot.parent?.params['id'])
+      .then((resposta) => {
+        this.ondeFica = resposta;
+      });
   }
 
 }
