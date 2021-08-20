@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OfertasService } from '../services/ofertas.service';
+import { OfertaModel } from './../shared/oferta.model';
+import { Observable, Subscription } from 'rxjs';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-topo',
@@ -10,7 +13,11 @@ import { OfertasService } from '../services/ofertas.service';
     OfertasService
   ]
 })
-export class TopoComponent implements OnInit {
+export class TopoComponent implements OnInit, OnDestroy {
+
+
+  public ofertas!: Observable<OfertaModel[]>;
+  private unsubscribe!: Subscription;
 
   constructor(
     private ofertasService: OfertasService
@@ -20,6 +27,21 @@ export class TopoComponent implements OnInit {
   }
 
   public onKey(termoDaBusca: String): void {
-    console.log(termoDaBusca);
+    this.ofertas = this.ofertasService.pesquisaOfertas(termoDaBusca);
+
+    this.unsubscribe = this.ofertas.subscribe(
+      (ofertas: OfertaModel[]) => {
+        console.log(ofertas);
+      },
+      (error) => {
+        console.log('Error status: ' + error.status);
+      },
+      () => {
+        console.log("Fluxo de evento completo.");
+      });
+  }
+
+  ngOnDestroy(): void {
+    //this.unsub.unsubscribe();
   }
 }

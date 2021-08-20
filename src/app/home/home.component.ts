@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       .then((ofertas: Array<OfertaModel>) => {
         this.ofertas = ofertas;
       }).catch((error: any) => {
-        console.log(error);
+       // console.log(error);
       });
   }
 }
