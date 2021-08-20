@@ -12,7 +12,8 @@
         <div class="col-md-6">
           <input type="text" class="form-control" 
           placeholder="Pesquise por oferta"
-          (keyup)="onKey($event)" 
+          #termoDaPesquisa
+          (keyup)="onKey(termoDaPesquisa.value)" 
           />
         </div>
 
