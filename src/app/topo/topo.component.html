@@ -10,7 +10,10 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" class="form-control" placeholder="Pesquise por oferta">
+          <input type="text" class="form-control" 
+          placeholder="Pesquise por oferta"
+          (keyup)="onKey($event)" 
+          />
         </div>
 
         <div class="col-md-2">
