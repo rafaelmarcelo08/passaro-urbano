@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpResponse } from "@angular/common/http";
 
 import { retry } from 'rxjs/operators';
 import { OfertaModel } from "../shared/oferta.model";
@@ -14,19 +14,19 @@ export class OfertasService {
     ) { }
 
     public getOfertas(): Promise<OfertaModel[]> {
-        return this.http.get<OfertaModel[]>(`${URL_API}/ofertas?destaque=true`)
+        return this.http.get<HttpResponse<OfertaModel[]>>(`${URL_API}/ofertas?destaque=true`)
             .toPromise()
             .then((resposta: any) => resposta);
     }
 
     public getOfertasPorCategoria(categoria: string): Promise<OfertaModel[]> {
-        return this.http.get<OfertaModel[]>(`${URL_API}/ofertas?categoria=${categoria}`)
+        return this.http.get<HttpResponse<OfertaModel[]>>(`${URL_API}/ofertas?categoria=${categoria}`)
             .toPromise()
-            .then((resposta) => resposta);
+            .then((resposta: any) => resposta);
     }
 
     public getOfertaPorId(id: Number): Promise<OfertaModel> {
-        return this.http.get<OfertaModel>(`${URL_API}/ofertas?id=${id}`)
+        return this.http.get<HttpResponse<OfertaModel>>(`${URL_API}/ofertas?id=${id}`)
             .toPromise()
             .then((resposta: any) => {
                 return resposta.shift()
@@ -34,7 +34,7 @@ export class OfertasService {
     }
 
     public getComoUsarPorId(id: Number): Promise<String> {
-        return this.http.get(`${URL_API}/como-usar?id=${id}`)
+        return this.http.get<HttpResponse<String>>(`${URL_API}/como-usar?id=${id}`)
             .toPromise()
             .then((resposta: any) => {
                 return resposta[0].descricao;
@@ -42,7 +42,7 @@ export class OfertasService {
     }
 
     public getOndeFicaPorId(id: Number): Promise<String> {
-        return this.http.get(`${URL_API}/onde-fica?id=${id}`)
+        return this.http.get<HttpResponse<String>>(`${URL_API}/onde-fica?id=${id}`)
             .toPromise()
             .then((resposta: any) => {
                 return resposta[0].descricao;
@@ -51,6 +51,6 @@ export class OfertasService {
 
     public pesquisaOfertas(termo: String): Observable<OfertaModel[]> {
         return this.http.get<OfertaModel[]>(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
-        .pipe(retry(10));
+            .pipe(retry(10));
     }
 }
