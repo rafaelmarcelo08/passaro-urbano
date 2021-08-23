@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { OfertasService } from '../services/ofertas.service';
 import { OfertaModel } from './../shared/oferta.model';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
+
+import { switchMap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-topo',
@@ -17,31 +19,34 @@ export class TopoComponent implements OnInit, OnDestroy {
 
 
   public ofertas!: Observable<OfertaModel[]>;
-  private unsubscribe!: Subscription;
+  private unSubscribe!: Subscription;
+  private subjectPesquisa: Subject<String> = new Subject<String>();
 
   constructor(
     private ofertasService: OfertasService
   ) { }
 
   ngOnInit(): void {
+    // retorno de ofertas.
+    this.ofertas = this.subjectPesquisa.pipe(
+      switchMap((termo: String) => {
+        console.log("requisicao");
+        return this.ofertasService.pesquisaOfertas(termo);
+      })
+    )
+
+    this.ofertas.subscribe((ofertas: OfertaModel[]) => {
+      console.log(ofertas);
+    });
   }
 
   public onKey(termoDaBusca: String): void {
-    this.ofertas = this.ofertasService.pesquisaOfertas(termoDaBusca);
-
-    this.unsubscribe = this.ofertas.subscribe(
-      (ofertas: OfertaModel[]) => {
-        console.log(ofertas);
-      },
-      (error) => {
-        console.log('Error status: ' + error.status);
-      },
-      () => {
-        console.log("Fluxo de evento completo.");
-      });
+    /**Observador */
+    console.log("keyUP", termoDaBusca);
+    this.subjectPesquisa.next(termoDaBusca);
   }
 
   ngOnDestroy(): void {
-    //this.unsub.unsubscribe();
+    this.unSubscribe.unsubscribe();
   }
 }
