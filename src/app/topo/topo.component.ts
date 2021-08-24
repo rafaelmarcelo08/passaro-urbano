@@ -31,6 +31,7 @@ export class TopoComponent implements OnInit, OnDestroy {
   public ofertas!: Observable<OfertaModel[]>;
   private unSubscribe!: Subscription;
   private subjectPesquisa: Subject<String> = new Subject<String>();
+  public listaOfertas!: OfertaModel[];
 
   constructor(
     private ofertasService: OfertasService
@@ -54,8 +55,9 @@ export class TopoComponent implements OnInit, OnDestroy {
         return of<OfertaModel[]>([]);
       })
     );
+
     this.ofertas.subscribe((ofertas: OfertaModel[]) => {
-      console.log(ofertas);
+      this.listaOfertas = ofertas;
     });
   }
 
