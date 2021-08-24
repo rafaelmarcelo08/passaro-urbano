@@ -10,11 +10,16 @@
         </div>
 
         <div class="col-md-6">
-          <input type="text" class="form-control" 
-          placeholder="Pesquise por oferta"
-          #termoDaPesquisa
-          (keyup)="onKey(termoDaPesquisa.value)" 
-          />
+          <input type="text" class="form-control" placeholder="Pesquise por oferta" #termoDaPesquisa
+            (keyup)="onKey(termoDaPesquisa.value)" />
+
+          <ul class="list-group" style="position: absolute;">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+          </ul>
         </div>
 
         <div class="col-md-2">
