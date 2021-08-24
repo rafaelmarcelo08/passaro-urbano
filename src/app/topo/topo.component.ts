@@ -2,10 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 import { OfertasService } from '../services/ofertas.service';
 import { OfertaModel } from './../shared/oferta.model';
-import { Observable, Subject, Subscription, of } from 'rxjs';
 import { OnDestroy } from '@angular/core';
+import {
+  Observable,
+  Subject,
+  Subscription,
+  of
+} from 'rxjs';
 
-import { switchMap, debounceTime } from 'rxjs/operators'
+import {
+  switchMap,
+  debounceTime,
+  distinctUntilChanged
+} from 'rxjs/operators'
 
 @Component({
   selector: 'app-topo',
@@ -30,9 +39,10 @@ export class TopoComponent implements OnInit, OnDestroy {
     // retorno de ofertas.
     this.ofertas = this.subjectPesquisa.pipe(
       debounceTime(1000),
+      distinctUntilChanged(),
       switchMap((termo: String) => {
         console.log("requisicao");
-        
+
         if (termo.trim() === '') {
           return of<OfertaModel[]>([]);
         }
