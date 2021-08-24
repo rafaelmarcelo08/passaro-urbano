@@ -13,7 +13,8 @@ import {
 import {
   switchMap,
   debounceTime,
-  distinctUntilChanged
+  distinctUntilChanged,
+  catchError
 } from 'rxjs/operators'
 
 @Component({
@@ -47,9 +48,12 @@ export class TopoComponent implements OnInit, OnDestroy {
           return of<OfertaModel[]>([]);
         }
         return this.ofertasService.pesquisaOfertas(termo);
+      }),
+      catchError((erro) => {
+        console.log(erro)
+        return of<OfertaModel[]>([]);
       })
-    )
-
+    );
     this.ofertas.subscribe((ofertas: OfertaModel[]) => {
       console.log(ofertas);
     });
