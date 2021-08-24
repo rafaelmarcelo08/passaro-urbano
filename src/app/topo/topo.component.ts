@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { OfertasService } from '../services/ofertas.service';
 import { OfertaModel } from './../shared/oferta.model';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, of } from 'rxjs';
 import { OnDestroy } from '@angular/core';
 
 import { switchMap, debounceTime } from 'rxjs/operators'
@@ -32,9 +32,11 @@ export class TopoComponent implements OnInit, OnDestroy {
       debounceTime(1000),
       switchMap((termo: String) => {
         console.log("requisicao");
-
+        
+        if (termo.trim() === '') {
+          return of<OfertaModel[]>([]);
+        }
         return this.ofertasService.pesquisaOfertas(termo);
-
       })
     )
 
