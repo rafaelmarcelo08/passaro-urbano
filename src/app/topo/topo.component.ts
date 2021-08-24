@@ -5,7 +5,7 @@ import { OfertaModel } from './../shared/oferta.model';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { OnDestroy } from '@angular/core';
 
-import { switchMap } from 'rxjs/operators'
+import { switchMap, debounceTime } from 'rxjs/operators'
 
 @Component({
   selector: 'app-topo',
@@ -29,9 +29,12 @@ export class TopoComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // retorno de ofertas.
     this.ofertas = this.subjectPesquisa.pipe(
+      debounceTime(1000),
       switchMap((termo: String) => {
         console.log("requisicao");
+
         return this.ofertasService.pesquisaOfertas(termo);
+
       })
     )
 
