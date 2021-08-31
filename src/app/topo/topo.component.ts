@@ -42,9 +42,7 @@ export class TopoComponent implements OnInit, OnDestroy {
       debounceTime(1000),
       distinctUntilChanged(),
       switchMap((termoDaBusca: String) => {
-        // console.log("requisicao");
-
-        if (termoDaBusca.trim() === '') { 
+        if (termoDaBusca.trim() === '') {
           return of<OfertaModel[]>([]);
         }
         return this.ofertasService.pesquisaOfertas(termoDaBusca);
@@ -58,11 +56,14 @@ export class TopoComponent implements OnInit, OnDestroy {
 
   public onKey(termoDaBusca: String): void {
     /**Observador */
-    console.log("keyUP", termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
   }
 
   ngOnDestroy(): void {
     this.unSubscribe.unsubscribe();
+  }
+
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next('');
   }
 }
