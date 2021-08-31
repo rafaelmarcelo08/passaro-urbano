@@ -31,7 +31,6 @@ export class TopoComponent implements OnInit, OnDestroy {
   public ofertas!: Observable<OfertaModel[]>;
   private unSubscribe!: Subscription;
   private subjectPesquisa: Subject<String> = new Subject<String>();
-  public listaOfertas!: OfertaModel[];
 
   constructor(
     private ofertasService: OfertasService
@@ -42,23 +41,19 @@ export class TopoComponent implements OnInit, OnDestroy {
     this.ofertas = this.subjectPesquisa.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
-      switchMap((termo: String) => {
-        console.log("requisicao");
+      switchMap((termoDaBusca: String) => {
+        // console.log("requisicao");
 
-        if (termo.trim() === '') {
+        if (termoDaBusca.trim() === '') { 
           return of<OfertaModel[]>([]);
         }
-        return this.ofertasService.pesquisaOfertas(termo);
+        return this.ofertasService.pesquisaOfertas(termoDaBusca);
       }),
       catchError((erro) => {
         console.log(erro)
         return of<OfertaModel[]>([]);
       })
     );
-
-    this.ofertas.subscribe((ofertas: OfertaModel[]) => {
-      this.listaOfertas = ofertas;
-    });
   }
 
   public onKey(termoDaBusca: String): void {

@@ -14,7 +14,9 @@
             (keyup)="onKey(termoDaPesquisa.value)" />
 
           <ul class="list-group" style="position: absolute;">
-            <li class="list-group-item" *ngFor="let oferta of listaOfertas">{{ oferta.titulo | descricaoReduzida: 15 | uppercase }}</li>
+            <li class="list-group-item" *ngFor="let oferta of ofertas | async">
+              {{ oferta.titulo | descricaoReduzida: 15 | uppercase }}
+            </li>
           </ul>
         </div>
 
