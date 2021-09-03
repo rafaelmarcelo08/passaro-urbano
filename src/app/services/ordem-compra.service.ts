@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Pedido } from '../model/pedido.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +9,7 @@ export class OrdemCompraService {
 
   constructor() { }
 
-  public efetivarCompra(): void {
+  public efetivarCompra(pedido: Pedido): void {
     console.log('Chegamos ate aqui');
   }
 }

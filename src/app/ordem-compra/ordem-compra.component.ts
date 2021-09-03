@@ -36,7 +36,7 @@ export class OrdemCompraComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.ordemCompraService.efetivarCompra();
+    //this.ordemCompraService.efetivarCompra();
   }
 
   public atualizaEndereco(endereco: String): void {
