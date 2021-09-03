@@ -10,6 +10,6 @@ export class OrdemCompraService {
   constructor() { }
 
   public efetivarCompra(pedido: Pedido): void {
-    console.log('Chegamos ate aqui');
+    console.log(pedido);
   }
 }

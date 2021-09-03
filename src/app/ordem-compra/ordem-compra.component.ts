@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Pedido } from './../model/pedido.model';
 import { OrdemCompraService } from '../services/ordem-compra.service';
 
 @Component({
@@ -10,6 +12,8 @@ import { OrdemCompraService } from '../services/ordem-compra.service';
   ]
 })
 export class OrdemCompraComponent implements OnInit {
+
+  public pedido = new Pedido('','','','');
 
   public endereco: String = '';
   public numero: String = '';
@@ -101,6 +105,12 @@ export class OrdemCompraComponent implements OnInit {
     }
   }
 
+  public confirmarCompra(): void {
+    this.pedido.endereco = this.endereco;
+    this.pedido.numero = this.numero;
+    this.pedido.complemento = this.complemento;
+    this.pedido.formapagamento = this.formaPagamento;
+    this.ordemCompraService.efetivarCompra(this.pedido);
+  }
 
 }
-
