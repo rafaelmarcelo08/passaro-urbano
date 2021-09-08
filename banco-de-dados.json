@@ -1,13 +1,15 @@
 {
-  "ofertas": [{
+  "ofertas": [
+    {
       "id": 1,
       "categoria": "restaurante",
       "titulo": "Super Burger",
       "descricao_oferta": "Rodízio de Mini-hambúrger com opção de entrada.",
       "anunciante": "Original Burger",
-      "valor": 29.90,
+      "valor": 29.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/1/img1.jpg"
         },
         {
@@ -27,9 +29,10 @@
       "titulo": "Cozinha Mexicana",
       "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
       "anunciante": "Mexicana",
-      "valor": 32.90,
+      "valor": 32.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/2/img1.jpg"
         },
         {
@@ -49,9 +52,10 @@
       "titulo": "Pizzas Grandes",
       "descricao_oferta": "Pizza Grande, Mussarela, Marguerita ou outras!",
       "anunciante": "Nossa Pizza",
-      "valor": 21.90,
+      "valor": 21.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/3/img1.jpg"
         },
         {
@@ -71,9 +75,10 @@
       "titulo": "Estância das águas",
       "descricao_oferta": "Diversão garantida com piscinas, trilhas e muito mais.",
       "anunciante": "Estância das águas",
-      "valor": 31.90,
+      "valor": 31.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/4/img1.jpg"
         },
         {
@@ -99,9 +104,10 @@
       "titulo": "Kart",
       "descricao_oferta": "Bateria de Kart de 30 minutos.",
       "anunciante": "Speed Kart",
-      "valor": 54.90,
+      "valor": 54.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/5/img1.jpg"
         },
         {
@@ -115,9 +121,10 @@
       "titulo": "Academia de tiro",
       "descricao_oferta": "Sessão de tiro dinâmico com Instrutor, Estande, Alvo e Equipamentos.",
       "anunciante": "Academia de Tiro",
-      "valor": 89.90,
+      "valor": 89.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/6/img1.jpg"
         },
         {
@@ -153,29 +160,38 @@
     }
   ],
   "onde-fica": [
-		{
-			"id": 1,
-			"descricao": "Avenida João da Silva, 255, São Paulo - SP"
-		},
-		{
-			"id": 2,
-			"descricao": "Rua Francisco Mendes, 1000, Rio de Janeiro - SP "
-		},
-		{
-			"id": 3,
-			"descricao": "Avenida Lúcio Rodrigues Alves, 33, Fortaleza - CE"
-		},
-		{
-			"id": 4,
-			"descricao": "Avenida José de Oliveira, 550, Campo Grande - MS"
-		},
-		{
-			"id": 5,
-			"descricao": "Avenida Júlia Abrão, 77, São Paulo - SP"
-		},
-		{
-			"id": 6,
-			"descricao": "Estrada Maria das Graças, 12, Salvador - BA "
-		}
-	]
+    {
+      "id": 1,
+      "descricao": "Avenida João da Silva, 255, São Paulo - SP"
+    },
+    {
+      "id": 2,
+      "descricao": "Rua Francisco Mendes, 1000, Rio de Janeiro - SP "
+    },
+    {
+      "id": 3,
+      "descricao": "Avenida Lúcio Rodrigues Alves, 33, Fortaleza - CE"
+    },
+    {
+      "id": 4,
+      "descricao": "Avenida José de Oliveira, 550, Campo Grande - MS"
+    },
+    {
+      "id": 5,
+      "descricao": "Avenida Júlia Abrão, 77, São Paulo - SP"
+    },
+    {
+      "id": 6,
+      "descricao": "Estrada Maria das Graças, 12, Salvador - BA "
+    }
+  ],
+  "pedidos": [
+    {
+      "endereco": "rua abc",
+      "numero": "1",
+      "complemento": "vale do araguaia",
+      "formapagamento": "debito",
+      "id": 1
+    }
+  ]
 }
