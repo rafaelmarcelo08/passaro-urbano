@@ -15,9 +15,9 @@ export class OrdemCompraService {
     private http: HttpClient
   ) { }
 
-  public efetivarCompra(pedido: Pedido): Observable<any> {
-    
-    let headers = new HttpHeaders({'Content-type': 'application/json'});
+  public efetivarCompra(pedido: Pedido): Observable<Number> {
+
+    let headers = new HttpHeaders({ 'Content-type': 'application/json' });
 
     return this.http.post(
       `${URL_API}/pedidos`,
@@ -26,7 +26,7 @@ export class OrdemCompraService {
         headers: headers
       }
     ).pipe(map((resposta: any) => {
-      console.log(resposta);
+      return resposta.id;
     }));
   }
 }

@@ -1,4 +1,5 @@
 export class Pedido {
+    
     constructor(
         public endereco: String,
         public numero: String,
