@@ -20,6 +20,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { DescricaoReduzida } from './util/descricao-reduzia.pipe';
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
+import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
 registerLocaleData(localePt);
 
@@ -35,7 +36,8 @@ registerLocaleData(localePt);
     OndeFicaComponent,
     ComoUsarComponent,
     DescricaoReduzida,
-    OrdemCompraComponent
+    OrdemCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule,
