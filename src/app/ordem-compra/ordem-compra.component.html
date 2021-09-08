@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra">
-    <form novalidate>
+    <form #formulario='ngForm' novalidate>
     
       <h5>Sua Compra</h5>
       <hr />
@@ -62,7 +62,7 @@
       </div>
       <br />
 
-
+     <pre>{{ formulario.form.value | json}}</pre>
       <h5>Dados de entrega</h5>
       <hr />
 
@@ -76,6 +76,8 @@
             autocomplete="off" 
             minlength="5" 
             required
+            name='endereco'
+            ngModel
           >
           <small class="form-text text-danger">Endereço inválido</small>
         </div>
@@ -88,6 +90,8 @@
             autocomplete="off" 
             minlength="1"
             required
+            name='numero'
+            ngModel
           >
           <small class="form-text text-success">Ok</small>
         </div>
@@ -98,6 +102,8 @@
             class="form-control" 
             placeholder="Complemento" 
             autocomplete="off"
+            name='complemento'
+            ngModel
           >
         </div>
 
@@ -112,6 +118,8 @@
         <div class="form-group col-md-3">
           <select 
             class="form-control is-invalid"
+            name='formaPagamento'
+            ngModel
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
