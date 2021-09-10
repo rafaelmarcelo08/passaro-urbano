@@ -84,8 +84,16 @@
             required
             minlength="3"
             maxlength="120"
+            #inputEndereco='ngModel'
           >
-          <small class="form-text text-danger">Endereço inválido</small>
+          <small *ngIf="inputEndereco.valid && inputEndereco.touched" 
+          class="form-text text-success">Endereço valido</small>
+         
+          
+          <small *ngIf="!inputEndereco.valid && inputEndereco.touched" 
+          class="form-text text-danger">Endereço inválido</small>
+         
+
         </div>
 
         <div class="form-group col-md-2">
@@ -99,8 +107,14 @@
             required
             minlength="1"
             maxlength="20"
-          >
-          <small class="form-text text-success">Ok</small>
+            #inputNumero='ngModel'>
+
+          <small *ngIf="inputNumero.valid && inputNumero.touched" 
+          class="form-text text-success">Número valido</small>
+
+          <small *ngIf="!inputNumero.valid && inputNumero.touched"
+          class="form-text text-danger">Número invalido</small>
+
         </div>
 
         <div class="form-group col-md-4">
@@ -128,12 +142,18 @@
             name='formaPagamento'
             ngModel
             required
+            #selectFormaPagamento='ngModel'
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-          <small class="form-text text-danger">Forma de pagamento inválida</small>
+
+          <small *ngIf="selectFormaPagamento.valid && selectFormaPagamento.touched" 
+          class="form-text text-success">Forma de pagamento valida</small>
+
+          <small *ngIf="!selectFormaPagamento.valid && selectFormaPagamento.touched"
+          class="form-text text-danger">Forma de pagamento invalida</small>
         </div>
       </div>
 
