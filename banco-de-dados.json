@@ -192,6 +192,13 @@
       "complemento": "vale do araguaia",
       "formapagamento": "debito",
       "id": 1
+    },
+    {
+      "endereco": "Rua de teste",
+      "numero": "1",
+      "complemento": "teste",
+      "formapagamento": "debito",
+      "id": 2
     }
   ]
 }
