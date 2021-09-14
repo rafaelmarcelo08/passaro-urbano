@@ -1,6 +1,7 @@
 <div class="container">
   <div class="ordem-compra">
     <form 
+    [formGroup]='formulario'
     novalidate
     >
     
@@ -75,7 +76,7 @@
             class="form-control" 
             placeholder="Endereço" 
             autocomplete="off"
-
+            formControlName="endereco"
           >
           <small class="form-text text-success">Ok</small>
         </div>
@@ -86,7 +87,7 @@
             class="form-control" 
             placeholder="Número" 
             autocomplete="off"
-
+            formControlName="numero"
           >
           <small class="form-text text-success">Ok</small>
         </div>
@@ -97,7 +98,7 @@
             class="form-control" 
             placeholder="Complemento" 
             autocomplete="off"
-
+            formControlName="complemento"
           >
         </div>
 
@@ -112,7 +113,7 @@
         <div class="form-group col-md-3">
           <select 
             class="form-control"
-
+            formControlName="formaPagamento"
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
