@@ -21,6 +21,8 @@ import { Pedido } from '../model/pedido.model';
 })
 export class OrdemCompraComponent implements OnInit {
 
+  public idPedidoCompra!: Number;
+
   constructor(
     private ordemCompraService: OrdemCompraService
   ) { }
@@ -64,8 +66,17 @@ export class OrdemCompraComponent implements OnInit {
       this.formulario.get('numero')?.markAsTouched();
       this.formulario.get('complemento')?.markAsTouched();
       this.formulario.get('formaPagamento')?.markAsTouched();
-    }else {
-      console.log('formulario valido');
+    } else {
+      let pedido: Pedido = new Pedido(
+        this.formulario.value.endereco,
+        this.formulario.value.numero,
+        this.formulario.value.complemento,
+        this.formulario.value.formaPagamento
+      );
+      this.ordemCompraService.efetivarCompra(pedido)
+        .subscribe((idPedido: Number) => {
+          this.idPedidoCompra = idPedido;
+        });
     }
   }
 }

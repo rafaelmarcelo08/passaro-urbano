@@ -199,6 +199,13 @@
       "complemento": "teste",
       "formapagamento": "debito",
       "id": 2
+    },
+    {
+      "endereco": "rua teste",
+      "numero": "1",
+      "complemento": "quadra B",
+      "formapagamento": "debito",
+      "id": 3
     }
   ]
 }
