@@ -206,6 +206,13 @@
       "complemento": "quadra B",
       "formapagamento": "debito",
       "id": 3
+    },
+    {
+      "endereco": "rua teste 2",
+      "numero": "1",
+      "complemento": "quadra c",
+      "formapagamento": "dinheiro",
+      "id": 4
     }
   ]
 }

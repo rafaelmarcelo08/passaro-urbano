@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="ordem-compra">
+  <div *ngIf="idPedidoCompra === undefined" class="ordem-compra">
     <form [formGroup]='formulario' novalidate (ngSubmit)="confirmarCompra()">
 
       <h5>Sua Compra</h5>
@@ -105,7 +105,7 @@
             <option value="dinheiro">Dinheiro</option>
             <option value="debito">Débito</option>
           </select>
-          
+
           <small *ngIf="formulario.get('formaPagamento')?.valid &&
           formulario.get('formaPagamento')?.touched" class="form-text text-success">Ok</small>
 
@@ -115,7 +115,11 @@
       </div>
 
       <hr />
-      <button  type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
     </form>
+  </div>
+
+  <div *ngIf="idPedidoCompra !== undefined" class="ordem-compra">
+    <app-ordem-compra-sucesso [idPedidoCompra]='idPedidoCompra'></app-ordem-compra-sucesso>
   </div>
 </div>
