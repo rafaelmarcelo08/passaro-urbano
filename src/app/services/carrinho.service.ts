@@ -6,7 +6,11 @@ import { ItemCarrinho } from '../model/item-carrinho.model';
 })
 export class CarrinhoService {
 
-  public itens!: ItemCarrinho[];
+  public itens: ItemCarrinho[] = [];
 
   constructor() { }
+
+  public exibirItens(): ItemCarrinho[] {
+    return this.itens;
+  }
 }

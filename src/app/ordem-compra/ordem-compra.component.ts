@@ -10,13 +10,15 @@ import {
 
 import { OrdemCompraService } from '../services/ordem-compra.service';
 import { Pedido } from '../model/pedido.model';
+import { CarrinhoService } from '../services/carrinho.service';
 
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
   providers: [
-    OrdemCompraService
+    OrdemCompraService,
+    CarrinhoService
   ]
 })
 export class OrdemCompraComponent implements OnInit {
@@ -24,7 +26,8 @@ export class OrdemCompraComponent implements OnInit {
   public idPedidoCompra!: Number;
 
   constructor(
-    private ordemCompraService: OrdemCompraService
+    private ordemCompraService: OrdemCompraService,
+    private carrinhoService: CarrinhoService
   ) { }
 
   public formulario: FormGroup = new FormGroup(
@@ -56,7 +59,7 @@ export class OrdemCompraComponent implements OnInit {
   );
 
   ngOnInit() {
-
+    console.log('Array', this.carrinhoService.exibirItens());
   }
 
   public confirmarCompra(): void {
