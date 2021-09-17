@@ -1,4 +1,4 @@
-import { OfertaModel } from './../shared/oferta.model';
+import { OfertaModel } from '../model/oferta.model';
 import { Component, OnInit } from '@angular/core';
 
 import { OfertasService } from './../services/ofertas.service';

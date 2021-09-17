@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 
 import { retry } from 'rxjs/operators';
-import { OfertaModel } from "../shared/oferta.model";
+import { OfertaModel } from "../model/oferta.model";
 import { URL_API } from "../app.api";
 
 @Injectable()
