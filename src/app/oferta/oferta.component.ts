@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { OfertaModel } from '../model/oferta.model';
+import { CarrinhoService } from '../services/carrinho.service';
 import { OfertasService } from './../services/ofertas.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { OfertasService } from './../services/ofertas.service';
   templateUrl: './oferta.component.html',
   styleUrls: ['./oferta.component.css'],
   providers: [
-    OfertasService
+    OfertasService,
+    CarrinhoService
   ]
 })
 export class OfertaComponent implements OnInit, OnDestroy {
@@ -19,7 +21,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private ofertasService: OfertasService,
-
+    private carrinhoService: CarrinhoService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
           this.oferta = oferta;
         });
     });
-
+    console.log(this.carrinhoService.exibirItens());
   }
 
   ngOnDestroy(): void {
