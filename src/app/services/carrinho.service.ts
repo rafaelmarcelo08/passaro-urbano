@@ -24,6 +24,7 @@ export class CarrinhoService {
       oferta.valor,
       1
       );
-      console.log(itemCarrinho);
+      
+      this.itens.push(itemCarrinho);
   }
 }

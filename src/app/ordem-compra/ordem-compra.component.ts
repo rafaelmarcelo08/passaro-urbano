@@ -17,8 +17,7 @@ import { CarrinhoService } from '../services/carrinho.service';
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
   providers: [
-    OrdemCompraService,
-    CarrinhoService
+    OrdemCompraService
   ]
 })
 export class OrdemCompraComponent implements OnInit {

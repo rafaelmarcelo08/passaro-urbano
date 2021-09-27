@@ -22,6 +22,7 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { CarrinhoService } from './services/carrinho.service';
 
 /**Rotas */
 import { ROUTES } from './app.routes';
@@ -56,7 +57,8 @@ registerLocaleData(localePt);
     {
       provide: LOCALE_ID,
       useValue: 'pt-Br'
-    }
+    },
+    CarrinhoService
   ],
 
   bootstrap: [AppComponent]
