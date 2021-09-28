@@ -23,8 +23,16 @@ export class CarrinhoService {
       oferta.descricao_oferta,
       oferta.valor,
       1
-      );
-      
+    );
+
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => {
+      return item.id === itemCarrinho.id
+    });
+
+    if (itemCarrinhoEncontrado) {
+      itemCarrinhoEncontrado.quantidade += 1;
+    } else {
       this.itens.push(itemCarrinho);
+    }
   }
 }

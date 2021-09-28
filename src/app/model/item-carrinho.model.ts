@@ -1,7 +1,7 @@
 export class ItemCarrinho {
 
     constructor(
-        public id: Number,
+        public id: number,
         public imagem: ImagemURL,
         public titulo: String,
         public descricao_oferta: String,
