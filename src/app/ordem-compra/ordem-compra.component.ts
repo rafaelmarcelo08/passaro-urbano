@@ -11,6 +11,7 @@ import {
 import { OrdemCompraService } from '../services/ordem-compra.service';
 import { Pedido } from '../model/pedido.model';
 import { CarrinhoService } from '../services/carrinho.service';
+import { ItemCarrinho } from './../model/item-carrinho.model';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -23,6 +24,7 @@ import { CarrinhoService } from '../services/carrinho.service';
 export class OrdemCompraComponent implements OnInit {
 
   public idPedidoCompra!: Number;
+  public itensCarrinho!: ItemCarrinho[];
 
   constructor(
     private ordemCompraService: OrdemCompraService,
@@ -58,7 +60,8 @@ export class OrdemCompraComponent implements OnInit {
   );
 
   ngOnInit() {
-    console.log('Array', this.carrinhoService.exibirItens());
+    this.itensCarrinho = this.carrinhoService.exibirItens();
+    console.log(this.itensCarrinho);
   }
 
   public confirmarCompra(): void {

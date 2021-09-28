@@ -5,11 +5,11 @@ export class ItemCarrinho {
         public imagem: ImagemURL,
         public titulo: String,
         public descricao_oferta: String,
-        public valor: Number,
-        public quantidade: Number
+        public valor: number,
+        public quantidade: number
     ) { }
 }
 
 interface ImagemURL {
-    url: string;
+    url: String;
 }
