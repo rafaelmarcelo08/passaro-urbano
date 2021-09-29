@@ -61,7 +61,7 @@ export class OrdemCompraComponent implements OnInit {
 
   ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibirItens();
-    console.log(this.itensCarrinho);
+    console.log(this.itensCarrinho.length);
   }
 
   public confirmarCompra(): void {
