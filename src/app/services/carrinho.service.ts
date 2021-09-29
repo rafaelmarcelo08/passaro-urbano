@@ -50,7 +50,7 @@ export class CarrinhoService {
       return item.id === itemCarrinho.id
     });
 
-    if (itemCarrinhoEncontrado) { 
+    if (itemCarrinhoEncontrado) {
       itemCarrinhoEncontrado.quantidade += 1;
     }
   }
@@ -60,8 +60,12 @@ export class CarrinhoService {
       return item.id === itemCarrinho.id
     });
 
-    if (itemCarrinhoEncontrado) { 
+    if (itemCarrinhoEncontrado) {
       itemCarrinhoEncontrado.quantidade -= 1;
+
+      if (itemCarrinhoEncontrado.quantidade === 0) {
+        this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado), 1);
+      }
     }
   }
 }
