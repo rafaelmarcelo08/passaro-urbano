@@ -53,6 +53,15 @@ export class CarrinhoService {
     if (itemCarrinhoEncontrado) { 
       itemCarrinhoEncontrado.quantidade += 1;
     }
+  }
 
+  public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => {
+      return item.id === itemCarrinho.id
+    });
+
+    if (itemCarrinhoEncontrado) { 
+      itemCarrinhoEncontrado.quantidade -= 1;
+    }
   }
 }
