@@ -61,7 +61,6 @@ export class OrdemCompraComponent implements OnInit {
 
   ngOnInit() {
     this.itensCarrinho = this.carrinhoService.exibirItens();
-    console.log(this.itensCarrinho.length);
   }
 
   public confirmarCompra(): void {
@@ -82,7 +81,10 @@ export class OrdemCompraComponent implements OnInit {
       this.ordemCompraService.efetivarCompra(pedido)
         .subscribe((idPedido: Number) => {
           this.idPedidoCompra = idPedido;
+          this.carrinhoService.limparCarrinho();
         });
+      
+
     }
   }
 

@@ -1,5 +1,6 @@
 {
-  "ofertas": [{
+  "ofertas": [
+    {
       "id": 1,
       "categoria": "restaurante",
       "titulo": "Super Burger",
@@ -7,7 +8,8 @@
       "anunciante": "Original Burger",
       "valor": 29.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/1/img1.jpg"
         },
         {
@@ -29,7 +31,8 @@
       "anunciante": "Mexicana",
       "valor": 32.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/2/img1.jpg"
         },
         {
@@ -51,7 +54,8 @@
       "anunciante": "Nossa Pizza",
       "valor": 21.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/3/img1.jpg"
         },
         {
@@ -73,7 +77,8 @@
       "anunciante": "Estância das águas",
       "valor": 31.9,
       "destaque": true,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/4/img1.jpg"
         },
         {
@@ -101,7 +106,8 @@
       "anunciante": "Speed Kart",
       "valor": 54.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/5/img1.jpg"
         },
         {
@@ -117,7 +123,8 @@
       "anunciante": "Academia de Tiro",
       "valor": 89.9,
       "destaque": false,
-      "imagens": [{
+      "imagens": [
+        {
           "url": "/assets/ofertas/6/img1.jpg"
         },
         {
@@ -126,7 +133,8 @@
       ]
     }
   ],
-  "como-usar": [{
+  "como-usar": [
+    {
       "id": 1,
       "descricao": "Não é necessário agendar"
     },
@@ -151,7 +159,8 @@
       "descricao": "Não é necessário agendar. Sujeito à fila."
     }
   ],
-  "onde-fica": [{
+  "onde-fica": [
+    {
       "id": 1,
       "descricao": "Avenida João da Silva, 255, São Paulo - SP"
     },
@@ -176,7 +185,8 @@
       "descricao": "Estrada Maria das Graças, 12, Salvador - BA "
     }
   ],
-  "pedidos": [{
+  "pedidos": [
+    {
       "endereco": "rua abc",
       "numero": "1",
       "complemento": "vale do araguaia",
@@ -209,7 +219,8 @@
       "numero": "123",
       "complemento": "teste f",
       "formapagamento": "dinheiro",
-      "itens": [{
+      "itens": [
+        {
           "id": 1,
           "imagem": {
             "url": "/assets/ofertas/1/img1.jpg"
@@ -231,6 +242,25 @@
         }
       ],
       "id": 5
+    },
+    {
+      "endereco": "rua joao",
+      "numero": "1",
+      "complemento": "rua D",
+      "formapagamento": "dinheiro",
+      "itens": [
+        {
+          "id": 4,
+          "imagem": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "titulo": "Estância das águas",
+          "descricao_oferta": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 6
     }
   ]
 }
