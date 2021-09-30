@@ -66,7 +66,6 @@ export class OrdemCompraComponent implements OnInit {
 
   public confirmarCompra(): void {
     if (this.formulario.status === 'INVALID') {
-      console.log('formulario invalido');
       this.formulario.get('endereco')?.markAsTouched();
       this.formulario.get('numero')?.markAsTouched();
       this.formulario.get('complemento')?.markAsTouched();
@@ -76,8 +75,10 @@ export class OrdemCompraComponent implements OnInit {
         this.formulario.value.endereco,
         this.formulario.value.numero,
         this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
+        this.formulario.value.formaPagamento,
+        this.carrinhoService.exibirItens()
       );
+
       this.ordemCompraService.efetivarCompra(pedido)
         .subscribe((idPedido: Number) => {
           this.idPedidoCompra = idPedido;
